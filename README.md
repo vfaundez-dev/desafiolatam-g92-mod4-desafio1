@@ -1,12 +1,20 @@
-# React + Vite
+# DESAFIO LATAM - _Curso Fullstack Javascript G92_
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+## Modulo 4 - React
 
-Currently, two official plugins are available:
+**_Desarrollado por Vladimir Faundez_**
+> Nota: `Esto realizado con propósitos académicos y de enseñanza. Favor no realizar copias directas del material aqui subido.`
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+### * Desafio 1 - Pizzeria MammaMia 🍕
 
-## Expanding the ESLint configuration
+Desarrollado con `React` y `Bootstrap`, consiste en el desarrollo de una `plantilla para una pizzeria`, utilizando la metodología de componentes reutilizables y modularidad.
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+### Logros ✅  
+
+- [x] Crear estructura solicitada para el desafio.
+- [x] Generar componente `Navbar` e implementar menu dinamico, segun estado de `token`.
+- [x] Generar componente `Header` y establecerlo dentro de componente `Home`.
+- [x] Establecer elementos `Home` y `Total` en `Navbar`.
+- [x] Generar componente `CardPizza` y pasar valores a este (img, name, price, ingredients).
+- [x] Repetir 3 veces el componente `CardPizza` dentro de `Home`.
+- [x] Generar componente `Footer`.
