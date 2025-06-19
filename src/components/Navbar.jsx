@@ -28,29 +28,39 @@ export const Navbar = () => {
           <ul className="navbar-nav mx-auto">
             <li className="nav-item">
               <a className="nav-link active px-3" href="#">
-                <i className="fas fa-home me-1"></i>Home
+                <i className="fas fa-home me-1"></i> Home
               </a>
             </li>
-            <li className="nav-item">
-              <a className="nav-link px-3" href="#">
-                <i className="fas fa-user me-1"></i>Profile
-              </a>
-            </li>
-            <li className="nav-item">
-              <a className="nav-link px-3" href="#">
-                <i className="fas fa-sign-in-alt me-1"></i>Login
-              </a>
-            </li>
-            <li className="nav-item">
-              <a className="nav-link px-3" href="#">
-                <i className="fas fa-sign-out-alt me-1"></i>Logout
-              </a>
-            </li>
-            <li className="nav-item">
-              <a className="nav-link px-3" href="#">
-                <i className="fas fa-user-plus me-1"></i>Register
-              </a>
-            </li>
+            {
+              token ? (
+                <>
+                  <li className="nav-item">
+                    <a className="nav-link px-3" href="#">
+                      <i className="fas fa-user me-1"></i> Profile
+                    </a>
+                  </li>
+                  <li className="nav-item">
+                    <a className="nav-link px-3" href="#">
+                      <i className="fas fa-sign-out-alt me-1"></i> Logout
+                    </a>
+                  </li>
+                </>
+                
+              ) : (
+                <>
+                  <li className="nav-item">
+                    <a className="nav-link px-3" href="#">
+                      <i className="fas fa-sign-in-alt me-1"></i> Login
+                    </a>
+                  </li>
+                  <li className="nav-item">
+                    <a className="nav-link px-3" href="#">
+                      <i className="fas fa-user-plus me-1"></i> Register
+                    </a>
+                  </li>
+                </>
+              )
+            }
           </ul>
 
           <button className="btn btn-outline-light d-flex align-items-center ms-3 btn-price">
