@@ -1,7 +1,7 @@
 
 export const CardPizza = ({ img, name, price, ingredients }) => {
   return (
-    <div className="card h-100 shadow-sm border-0">
+    <div className="card h-100 shadow border-0">
       <img src={ img } className="card-img-top" alt={ name } />
       <div className="card-body">
         <h5 className="card-title text-center fw-bold text-capitalize mb-3">{ name }</h5>

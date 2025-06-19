@@ -76,6 +76,11 @@ body {
 .card {
     border-radius: 20px;
     overflow: hidden;
+    transition: all 0.4s ease;
+}
+
+.card:hover {
+    box-shadow: 0 10px 30px rgba(45, 80, 22, 0.3) !important;
 }
 
 .card img {
@@ -148,6 +153,18 @@ body {
 .card .btn-options .add-to-cart:hover {
     background: #fff;
     color: #FF7D29;
+}
+
+/* Footer */
+
+footer {
+    background-color: #495057;
+    color: #F7F7F7;
+    padding: 20px 0;
+}
+
+footer p {
+    color: #FFD700;
 }
 
 /* Media */
