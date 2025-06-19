@@ -1,5 +1,11 @@
 @import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400..700&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
 
+body {
+    font-family: "Poppins", sans-serif;
+    background-color: #F5F5F5;
+    color: #495057;
+}
+
 /* Navbar */
 
 #navbar .navbar-brand {
@@ -37,4 +43,130 @@
 #navbar #navbarNav .btn-price:hover {
     background: #fff;
     color: #495057;
+}
+
+/* Header */
+
+.jumbotron {
+    background-image:
+        linear-gradient(rgba(45,80,22,0.7), rgba(74,124,89,0.7)),
+        url('https://images.unsplash.com/photo-1513104890138-7c749659a591?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80');
+    background-size: cover;
+    background-position: center;
+    min-height: 400px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.jumbotron h1 {
+    font-family: "Dancing Script", cursive;
+    color: #FFD700;
+}
+
+.jumbotron .lead {
+    font-family: "Poppins", sans-serif;
+    font-weight: 300;
+    color: #F7F7F7;
+}
+
+
+/* Card Pizza */
+
+.card {
+    border-radius: 20px;
+    overflow: hidden;
+}
+
+.card img {
+    height: 250px;
+    object-fit: cover;
+}
+
+.card h5 {
+    color: #2D5016;
+    font-size: 1.3rem;
+}
+
+.card .ingredients-title {
+    color: #4A7C59;
+    font-weight: 700;
+}
+
+.card .list-ingredients .badge {
+    background-color: #4A7C59;
+    border-radius: 15px;
+    font-size: 0.75rem;
+    font-weight: 500;
+    transition: all 0.2s ease;
+}
+
+.card .list-ingredients .badge:hover {
+  transform: scale(1.05);
+}
+
+.card .list-ingredients .badge i {
+    font-size: 0.7em;
+}
+
+.card .price {
+    color: #2D5016;
+    font-weight: 700;
+    font-size: 1.5rem;
+}
+
+.card .btn-options button {
+    min-width: 130px;
+    height: 40px;
+    padding: 5px 10px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    position: relative;
+    display: inline-block;
+    outline: none;
+    border-radius: 20px;
+}
+
+.card .btn-options .see-more {
+    color: #fff;
+    border: 2px solid #495057;
+    background: #495057;
+}
+
+.card .btn-options .see-more:hover {
+    background: #fff;
+    color: #495057;
+}
+
+.card .btn-options .add-to-cart {
+    color: #fff;
+    border: 2px solid #FF7D29;
+    background: #FF7D29;
+}
+
+.card .btn-options .add-to-cart:hover {
+    background: #fff;
+    color: #FF7D29;
+}
+
+/* Media */
+
+@media (max-width: 768px) {
+  .display-3 {
+    font-size: 2.5rem;
+  }
+
+  .jumbotron {
+    min-height: 350px !important;
+  }
+
+  .card-body .d-flex {
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+
+  .navbar-brand {
+    font-size: 1.5rem !important;
+  }
 }
