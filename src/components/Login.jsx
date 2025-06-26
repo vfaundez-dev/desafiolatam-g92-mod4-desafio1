@@ -1,29 +1,50 @@
-import { useState } from "react"
+import { useState } from 'react';
+import Swal from 'sweetalert2';
 
 export const Login = () => {
 
 	const [username, setUsername] = useState('');
 	const [password, setPassword] = useState('');
+
 	// Manejar estados de inputs
 	const handleUsernameChange = (e) => setUsername( e.target.value );
 	const handlePasswordChange = (e) => setPassword( e.target.value );
+
 	// Manejador de Login
 	const handleLogin = (e) => {
 		e.preventDefault();
-		const usernameInput = username;
-		const passwordInput = password;
+		const usernameInput = document.getElementById('email');
+		const passwordInput = document.getElementById('password');
+		
 		// Validaciones
-		if (usernameInput === '' || passwordInput === '') {
-			alert('Por favor, completa todos los campos.');
-			return;
+		if (username === '' || password === '') {
+			usernameInput.focus();
+			return Swal.fire({
+			  icon: 'error',
+			  title: 'Por favor, completa todos los campos'
+			});
 		}
 
-		if (passwordInput.length < 6) {
-			alert('La contraseña debe tener al menos 6 caracteres.');
-			return;
+		if (password.length < 6) {
+			passwordInput.focus();
+			return Swal.fire({
+			  icon: 'error',
+			  title: 'La contraseña debe tener al menos 6 caracteres'
+			});
 		}
 
-		alert('Login exitoso!');
+		Swal.fire({
+			icon: 'success',
+			title: 'Login exitoso!'
+		}).then(() => {
+			// Simula cierre de modal con boton de cierre
+			document.querySelector('#loginModal .btn-close')?.click();
+		});
+
+		setPassword('');
+		setUsername('');
+		usernameInput.value = '';
+		passwordInput.value = '';
 	}
 	
 	return (
@@ -59,7 +80,7 @@ export const Login = () => {
                   placeholder="tu@email.com"
 									value={ username }
             			onChange={ handleUsernameChange }
-                  required
+									required
                 />
               </div>
 
@@ -74,7 +95,7 @@ export const Login = () => {
                   className="form-control"
 									value={ password }
             			onChange={ handlePasswordChange }
-                  required
+									required
                 />
               </div>
 
