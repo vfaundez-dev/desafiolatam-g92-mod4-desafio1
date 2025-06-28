@@ -11,6 +11,8 @@ Desarrollado con `React` y `Bootstrap`, consiste en el desarrollo de una `planti
 
 ### Logros ✅  
 
+#### Hito 1
+
 - [x] Crear estructura solicitada para el desafio.
 - [x] Generar componente `Navbar` e implementar menu dinamico, segun estado de `token`.
 - [x] Generar componente `Header` y establecerlo dentro de componente `Home`.
@@ -18,3 +20,8 @@ Desarrollado con `React` y `Bootstrap`, consiste en el desarrollo de una `planti
 - [x] Generar componente `CardPizza` y pasar valores a este (img, name, price, ingredients).
 - [x] Repetir 3 veces el componente `CardPizza` dentro de `Home`.
 - [x] Generar componente `Footer`.
+
+#### Hito 2
+
+- [x] Crear componente `Login`. Agregado formulario, validaciones y mensajes de alerta.
+- [x] Crear componente `Register`. Agregado formulario, validaciones y mensajes de alerta.
