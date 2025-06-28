@@ -54,7 +54,7 @@ export const Navbar = () => {
                     </a>
                   </li>
                   <li className="nav-item">
-                    <a className="nav-link px-3" href="#">
+                    <a className="nav-link px-3" href="#" data-bs-toggle="modal" data-bs-target="#registerModal">
                       <i className="fas fa-user-plus me-1"></i> Register
                     </a>
                   </li>

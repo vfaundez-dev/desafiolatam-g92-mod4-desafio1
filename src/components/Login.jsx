@@ -5,15 +5,17 @@ export const Login = () => {
 
 	const [username, setUsername] = useState('');
 	const [password, setPassword] = useState('');
+	const [showPassword, setShowPassword] = useState(false);
 
 	// Manejar estados de inputs
 	const handleUsernameChange = (e) => setUsername( e.target.value );
 	const handlePasswordChange = (e) => setPassword( e.target.value );
+	const togglePasswordVisibility = () => setShowPassword(!showPassword);
 
 	// Manejador de Login
 	const handleLogin = (e) => {
 		e.preventDefault();
-		const usernameInput = document.getElementById('email');
+		const usernameInput = document.getElementById('username');
 		const passwordInput = document.getElementById('password');
 		
 		// Validaciones
@@ -33,14 +35,14 @@ export const Login = () => {
 			});
 		}
 
+		// Cerrar modal
+		document.querySelector('#loginModal .btn-close')?.click();
+		// Desplegar alerta
 		Swal.fire({
 			icon: 'success',
 			title: 'Login exitoso!'
-		}).then(() => {
-			// Simula cierre de modal con boton de cierre
-			document.querySelector('#loginModal .btn-close')?.click();
 		});
-
+		// Limpiar campos
 		setPassword('');
 		setUsername('');
 		usernameInput.value = '';
@@ -73,7 +75,7 @@ export const Login = () => {
                   <i className="fas fa-envelope me-2"></i> Correo Electrónico
                 </label>
                 <input
-                  id="email"
+                  id="username"
 									name="username"
                   type="email"
                   className="form-control"
@@ -88,15 +90,20 @@ export const Login = () => {
                 <label htmlFor="password" className="form-label fw-bold">
                   <i className="fas fa-lock me-2"></i> Contraseña
                 </label>
-                <input
-                  id="password"
-									name="password"
-                  type="password"
-                  className="form-control"
-									value={ password }
-            			onChange={ handlePasswordChange }
-									required
-                />
+								<div className="input-group mb-3">
+									<input
+										id="password"
+										name="password"
+										type={ showPassword ? 'text' : 'password' }
+										className="form-control"
+										value={ password }
+										onChange={ handlePasswordChange }
+										required
+									/>
+									<button className="btn btn-outline-secondary btn-view-password" type="button" onClick={ togglePasswordVisibility }>
+										<i className={ showPassword ? 'fas fa-eye-slash' : 'fas fa-eye' }></i>
+									</button>
+								</div>
               </div>
 
               <button type="submit" className="btn w-100 py-3">

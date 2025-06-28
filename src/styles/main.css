@@ -214,6 +214,18 @@ body {
     color: var(--fourth-color);
 }
 
+.modal-body .btn-view-password {
+    background-color: var(--fourth-color);
+    color: var(--light-color);
+    padding: 0 1rem;
+    transition: all 0.3s ease;
+}
+
+.modal-body .btn-view-password:hover {
+    background-color: var(--fourth-color);
+    color: var(--light-color);
+}
+
 /* Footer */
 
 footer {
