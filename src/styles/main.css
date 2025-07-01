@@ -103,6 +103,12 @@ body {
     font-size: 1.3rem;
 }
 
+.card .description {
+    color: var(--fourth-color);
+    font-size: 0.9rem;
+    margin-bottom: 1rem;
+}
+
 .card .ingredients-title {
     color: var(--fourth-color);
     font-weight: 700;
