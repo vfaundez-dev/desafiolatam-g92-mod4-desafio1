@@ -63,7 +63,11 @@ export const Navbar = () => {
             }
           </ul>
 
-          <button className="btn btn-outline-light d-flex align-items-center ms-3 btn-price">
+          <button
+            className="btn btn-outline-light d-flex align-items-center ms-3 btn-price"
+            data-bs-toggle="modal"
+            data-bs-target="#cartModal"
+          >
             <i className="fas fa-shopping-cart me-2"></i>
             Total: { total.toLocaleString('es-CL', { style: 'currency', currency: 'CLP' }) }
           </button>

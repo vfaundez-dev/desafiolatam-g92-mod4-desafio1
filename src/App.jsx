@@ -1,3 +1,4 @@
+import { Cart } from "./components/Cart";
 import { Footer } from "./components/Footer";
 import { Home } from "./components/Home";
 import { Login } from "./components/Login";
@@ -12,6 +13,7 @@ function App() {
       <Home />
       <Login />
       <Register />
+      <Cart />
       <Footer />
     </>
   )

@@ -8,6 +8,7 @@
     --accent-color: #FFD700;
     --background-color: #F5F5F5;
     --light-color: #FFFFFF;
+    --danger-color: #DC3545
 }
 
 body {
@@ -231,6 +232,62 @@ body {
     background-color: var(--fourth-color);
     color: var(--light-color);
 }
+
+/* Carrito de Compras */
+
+.cart-container .cart-elements img {
+    width: 60px;
+    height: 60px;
+    border-radius: 10px;
+    object-fit: cover;
+}
+
+.cart-container .cart-elements .name {
+    color: var(--tertiary-color);
+}
+
+.cart-container .cart-elements .price {
+    color: var(--fourth-color);
+    font-size: 1.1rem;
+}
+
+.cart-container .cart-elements .button-quantity {
+    color: white;
+    border: none;
+    border-radius: 8px;
+    width: 35px;
+    height: 35px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.cart-container .cart-elements .total-quantity {
+    min-width: 30px;
+    text-align: center;
+    font-size: 1.1rem;
+}
+
+/* Total Container */
+
+.total-container .total-title {
+    color: var(--tertiary-color);
+}
+
+.total-container .total-amount {
+    color: var(--fourth-color);
+    font-size: 1.5rem;
+}
+
+.total-container .btn-pay {
+    background-color: #2d5016;
+    color: #ffd700;
+    border: none;
+    border-radius: 15px;
+    font-weight: 600;
+    font-size: 1.2rem;
+}
+
 
 /* Footer */
 

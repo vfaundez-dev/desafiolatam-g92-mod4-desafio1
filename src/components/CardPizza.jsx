@@ -1,3 +1,4 @@
+import { formatCurrency } from "../data/formatCurrency";
 
 export const CardPizza = ({ img, name, price, description, ingredients }) => {
   return (
@@ -22,7 +23,7 @@ export const CardPizza = ({ img, name, price, description, ingredients }) => {
           {/* Precio */}
           <div className="text-center mb-4">
             <h4 className="price">
-              Precio: { price.toLocaleString('es-CL', { style: 'currency', currency: 'CLP' }) }
+              Precio: { formatCurrency(price) }
             </h4>
           </div>
           {/* Botones */}
