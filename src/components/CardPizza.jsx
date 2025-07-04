@@ -11,14 +11,13 @@ export const CardPizza = ({ img, name, price, description, ingredients }) => {
           {/* Ingredientes */}
           <div className="text-center mb-4">
             <p className="mb-3 ingredients-title">Ingredientes:</p>
-            <div className="d-flex flex-wrap justify-content-center gap-2 list-ingredients">
+            <ul className="list-unstyled d-flex flex-wrap justify-content-center gap-2 mb-0 list-ingredients">
               { ingredients.map( (ingredient, index) => (
-                <span key={ index } className="badge px-3 py-2 text-capitalize">
-                    <i className="fas fa-leaf me-1" style={{ fontSize: "0.7em" }}></i> { ingredient }
-                  </span>
-                ))
-              }
-            </div>
+                <li key={ index } className="badge px-3 py-2 text-capitalize">
+                  <i className="fas fa-leaf me-1" style={{ fontSize: "0.7em" }}></i> { ingredient }
+                </li>
+              ))}
+            </ul>
           </div>
           {/* Precio */}
           <div className="text-center mb-4">
