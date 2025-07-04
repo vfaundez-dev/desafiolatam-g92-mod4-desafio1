@@ -25,3 +25,9 @@ Desarrollado con `React` y `Bootstrap`, consiste en el desarrollo de una `planti
 
 - [x] Crear componente `Login`. Agregado formulario, validaciones y mensajes de alerta.
 - [x] Crear componente `Register`. Agregado formulario, validaciones y mensajes de alerta.
+
+#### Hito 3
+
+- [x] Importado archivo `pizza.js` y utilizado array `pizzas` en componente `Home`, renderizamos de forma dinámica el componente `CardPizza`.
+- [x] Generado componente `Cart` e importamos `pizza.js` para utilizar array `pizzaCart` y renderizarlo dinámicamente en el carrito, incluyendo imagen, nombre, precio, cantidad y botones para aumentar y disminuir. Aparte el precio total y un boton de pago sin funcionalidad abajo de esta renderización.
+- [x] Generado estados y funciones para aumentar y disminuir cantidad de pizzas, calcular el total y en caso que una pizza su cantidad sea cero, se elimina del listado.
