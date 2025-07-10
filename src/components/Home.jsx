@@ -10,10 +10,12 @@ export const Home = () => {
   const [pizzas, setPizzas] = useState([]);
   
   useEffect(() => {
-    if (data) {
+    if (errors) {
+      setPizzas([]);
+    } else if (data) {
       setPizzas(data);
     }
-  }, [data]);  
+  }, [data, errors]); 
 
   return (
     <>

@@ -172,6 +172,68 @@ body {
     color: var(--primary-color);
 }
 
+/* Card Pizza Details */
+.card-details img {
+    object-fit: cover;
+    min-height: 300px;
+}
+
+.card-details h3 {
+    color: var(--tertiary-color);
+    text-transform: capitalize;
+    font-family: "Dancing Script";
+    font-size: 2.4rem;
+    font-weight: 700;
+}
+
+.card-details h6 {
+    color: var(--tertiary-color);
+}
+
+.card-details i {
+    color: var(--fourth-color);
+}
+
+.card-details .price {
+    color: var(--fourth-color);
+    font-size: 1.5rem;
+}
+
+.card-details .ingredient {
+    background-color: var(--fourth-color);
+    color: var(--accent-color);
+    border-radius: 15px;
+    font-size: 0.85rem;
+    font-weight: 500;
+}
+
+.card-details .ingredient {
+    background-color: var(--fourth-color);
+    color: var(--accent-color);
+    border-radius: 15px;
+    font-size: 0.85rem;
+    font-weight: 500;
+}
+
+.card-details .description {
+    color: var(--secondary-color);
+    line-height: 1.6;
+    text-align: justify;
+}
+
+.card-details .btn-add-to-cart {
+    background-color: var(--fourth-color);
+    border: none;
+    border-radius: 15px;
+    font-weight: 600;
+    font-size: 1.1rem;
+    width: 100%;
+}
+
+.card-details .btn-add-to-cart:hover {
+    background-color: var(--secondary-color);
+}
+
 
 /* Modal Formularios */
 .modal-content {
