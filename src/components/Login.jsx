@@ -35,8 +35,6 @@ export const Login = () => {
 			});
 		}
 
-		// Cerrar modal
-		document.querySelector('#loginModal .btn-close')?.click();
 		// Desplegar alerta
 		Swal.fire({
 			icon: 'success',
@@ -50,69 +48,79 @@ export const Login = () => {
 	}
 	
 	return (
-		<div className="modal fade" id="loginModal" tabIndex="-1" aria-labelledby="loginModalLabel" aria-hidden="true">
-      <div className="modal-dialog modal-dialog-centered">
-        <div className="modal-content">
-          {/* Modal Header */}
-          <div className="modal-header text-center">
-            <h5 className="modal-title w-100" id="loginModalLabel">
-              <i className="fas fa-pizza-slice me-2"></i> Iniciar Sesión
-            </h5>
-            <button
-              type="button"
-              className="btn-close btn-close-white"
-              data-bs-dismiss="modal"
-              aria-label="Close"
-            ></button>
-          </div>
+    <div className="container my-5">
+      <div className="row justify-content-center">
+        <div className="col-md-6 col-lg-6">
+          <div className="card shadow-lg border-0 form-card-container">
 
-          {/* Modal Body */}
-          <div className="modal-body p-4">
-            <form id="formLogin" className="form" onSubmit={ handleLogin }>
+            <div className="card-header text-center border-0">
+              <div className="d-inline-flex align-items-center justify-content-center mb-3 logo-form-header">
+								<i class="fa-solid fa-user fa-2x text-light"></i>
+              </div>
+              <h3 className="mb-0">
+                Iniciar Sesión
+              </h3>
+            </div>
 
-              <div className="mb-4">
-                <label htmlFor="email" className="form-label fw-bold">
-                  <i className="fas fa-envelope me-2"></i> Correo Electrónico
-                </label>
-                <input
-                  id="username"
-									name="username"
-                  type="email"
-                  className="form-control"
-                  placeholder="tu@email.com"
-									value={ username }
-            			onChange={ handleUsernameChange }
-									required
-                />
+            <div className="card-body px-4 pb-4">
+
+              <form id="formLogin" className="form" onSubmit={ handleLogin }>
+                <div className="mb-4">
+                  <label htmlFor="username" className="form-label fw-bold">
+                    <i className="fas fa-envelope me-2"></i> Correo Electrónico
+                  </label>
+                  <input
+                    id="username"
+                    name="username"
+                    type="email"
+                    className="form-control"
+                    placeholder="tu@email.com"
+                    value={ username }
+                    onChange={ handleUsernameChange }
+                    required
+                  />
+                </div>
+
+                <div className="mb-4">
+                  <label htmlFor="password" className="form-label fw-bold">
+                    <i className="fas fa-lock me-2"></i> Contraseña
+                  </label>
+                  <div className="input-group">
+                    <input
+                      id="password"
+                      name="password"
+                      type={ showPassword ? "text" : "password" }
+                      className="form-control"
+                      placeholder="••••••••"
+                      value={ password }
+                      onChange={ handlePasswordChange }
+											required
+                    />
+                    <button
+                      className="btn btn-show-hide"
+                      type="button"
+                      onClick={ togglePasswordVisibility }
+										>
+                      <i className={ showPassword ? "fas fa-eye-slash" : "fas fa-eye" }></i>
+                    </button>
+                  </div>
+                </div>
+
+                <button type="submit" className="btn w-100 py-3 mt-3 btn-submit">
+                  <i className="fas fa-sign-in-alt me-2"></i> Iniciar Sesión
+                </button>
+              </form>
+
+              <div className="text-center mt-4">
+                <a href="#" className="text-decoration-none redirect-to">
+                  ¿No tienes cuenta? Registrate Aqui!
+                </a>
               </div>
 
-              <div className="mb-4">
-                <label htmlFor="password" className="form-label fw-bold">
-                  <i className="fas fa-lock me-2"></i> Contraseña
-                </label>
-								<div className="input-group mb-3">
-									<input
-										id="password"
-										name="password"
-										type={ showPassword ? 'text' : 'password' }
-										className="form-control"
-										value={ password }
-										onChange={ handlePasswordChange }
-										required
-									/>
-									<button className="btn btn-outline-secondary btn-view-password" type="button" onClick={ togglePasswordVisibility }>
-										<i className={ showPassword ? 'fas fa-eye-slash' : 'fas fa-eye' }></i>
-									</button>
-								</div>
-              </div>
-
-              <button type="submit" className="btn w-100 py-3">
-                <i className="fas fa-sign-in-alt me-2"></i> Iniciar Sesión
-              </button>
-            </form>
+            </div>
           </div>
         </div>
       </div>
     </div>
-	)
+  )
 }

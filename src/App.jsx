@@ -12,13 +12,12 @@ function App() {
     <>
       <Navbar />
       <div className="min-vh-100">
-        <Pizza />
+        {<Pizza />}
         {/* <Home /> */}
+        {/* <Login /> */}
+        {/* <Register /> */}
+        {/* <Cart /> */}
       </div>
-      {/* Modals */}
-      <Login />
-      <Register />
-      <Cart />
       <Footer />
     </>
   )
