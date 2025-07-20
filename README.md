@@ -36,3 +36,19 @@ Desarrollado con `React` y `Bootstrap`, consiste en el desarrollo de una `planti
 
 - [x] En componente `Home` lograr consumir la API de pizzas y renderizar las tarjetas de pizza e utilizar el hook useEffect para consumir la API.
 - [x] Crear el componente `Pizza`, lograr consumir la API de pizzas y renderizar la información de la pizza, utilizar el hook useEffect para consumir la API, mostrar la información de la pizza: nombre, precio, ingredientes, imagen y descripción y agregar el boton "Agregar a Carrito".
+
+#### Hito 5
+
+- [x] Instalado y configurado `React Router Dom`.
+- [x] Traslada los componentes Home, Register, Login, Cart y Pizza a la carpeta pages.
+- [x] Crea las rutas necesarias para los componentes:
+  - `/` debe mostrar el componente Home.
+  - `/register` debe mostrar el componente Register.
+  - `/login` debe mostrar el componente Login.
+  - `/cart` debe mostrar el componente Cart.
+  - `/pizza/p001` debe mostrar el componente Pizza.
+  - `/profile` debe mostrar un componente Profile.
+  - `/404` debe mostrar un componente NotFound.
+- [x] Implementa un componente `NotFound` que se muestre cuando una ruta no exista.
+- [x] Implementa un componente `Profile` que muestre un email de un usuario y un botón para cerrar sesión.
+- [x] Crea uncomponente `Navbar` que contenga un menú de navegación con enlaces a las rutas anteriores (utilizando Link) y el botón `total` lleve a la ruta `/cart`.
