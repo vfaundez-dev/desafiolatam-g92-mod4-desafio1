@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 
 export const Navbar = () => {
   const total = 25000;
@@ -6,11 +7,11 @@ export const Navbar = () => {
   return (
     <nav id="navbar" className="navbar navbar-expand-lg navbar-dark sticky-top" style={{ backgroundColor: "#212529" }}>
       <div className="container">
-        
-        <a className="navbar-brand fw-bold fs-3" href="#">
+
+        <Link to="/" className="navbar-brand fw-bold fs-3">
           <i className="fas fa-pizza-slice me-2"></i>
           Pizzería MammaMia!
-        </a>
+        </Link>
 
         <button
           className="navbar-toggler border-0"
@@ -27,50 +28,50 @@ export const Navbar = () => {
         <div className="collapse navbar-collapse" id="navbarNav">
           <ul className="navbar-nav mx-auto">
             <li className="nav-item">
-              <a className="nav-link active px-3" href="#">
+              <Link to="/" className="nav-link active px-3">
                 <i className="fas fa-home me-1"></i> Home
-              </a>
+              </Link>
             </li>
             {
               token ? (
                 <>
                   <li className="nav-item">
-                    <a className="nav-link px-3" href="#">
+                    <Link to="/profile" className="nav-link px-3">
                       <i className="fas fa-user me-1"></i> Profile
-                    </a>
+                    </Link>
                   </li>
                   <li className="nav-item">
-                    <a className="nav-link px-3" href="#">
+                    <Link to="/logout" className="nav-link px-3">
                       <i className="fas fa-sign-out-alt me-1"></i> Logout
-                    </a>
+                    </Link>
                   </li>
                 </>
                 
               ) : (
                 <>
                   <li className="nav-item">
-                    <a className="nav-link px-3" href="#" data-bs-toggle="modal" data-bs-target="#loginModal">
+                    <Link to="/login" className="nav-link px-3">
                       <i className="fas fa-sign-in-alt me-1"></i> Login
-                    </a>
+                    </Link>
                   </li>
                   <li className="nav-item">
-                    <a className="nav-link px-3" href="#" data-bs-toggle="modal" data-bs-target="#registerModal">
+                    <Link to="/register" className="nav-link px-3">
                       <i className="fas fa-user-plus me-1"></i> Register
-                    </a>
+                    </Link>
                   </li>
                 </>
               )
             }
           </ul>
 
-          <button
+          <Link
+            to="/cart"
             className="btn btn-outline-light d-flex align-items-center ms-3 btn-price"
-            data-bs-toggle="modal"
-            data-bs-target="#cartModal"
           >
             <i className="fas fa-shopping-cart me-2"></i>
             Total: { total.toLocaleString('es-CL', { style: 'currency', currency: 'CLP' }) }
-          </button>
+          </Link>
+          
         </div>
       </div>
     </nav>

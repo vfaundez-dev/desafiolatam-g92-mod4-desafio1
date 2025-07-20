@@ -55,7 +55,7 @@ export const Login = () => {
 
             <div className="card-header text-center border-0">
               <div className="d-inline-flex align-items-center justify-content-center mb-3 logo-form-header">
-								<i class="fa-solid fa-user fa-2x text-light"></i>
+								<i className="fa-solid fa-user fa-2x text-light"></i>
               </div>
               <h3 className="mb-0">
                 Iniciar Sesión

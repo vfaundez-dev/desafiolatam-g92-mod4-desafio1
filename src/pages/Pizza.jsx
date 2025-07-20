@@ -17,7 +17,7 @@ export const Pizza = () => {
 
   return (
     <div className="container my-5">
-      <div className="card shadow border-0 h-100 card-details">
+      <div className="card shadow border-0 card-details">
         { errors && <h5 className="text-center text-danger">Error al cargar pizza</h5> }
 
         {

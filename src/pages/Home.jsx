@@ -1,8 +1,8 @@
 import { useEffect, useState } from "react";
 // import { pizzas } from "../data/pizzas";
 import useFetchAxios from "../hooks/useFetchAxios";
-import { CardPizza } from "./CardPizza";
-import { Header } from "./Header";
+import { CardPizza } from "../components/CardPizza";
+import { Header } from "../components/Header";
 
 export const Home = () => {
   
@@ -15,7 +15,7 @@ export const Home = () => {
     } else if (data) {
       setPizzas(data);
     }
-  }, [data, errors]); 
+  }, [data, errors]);
 
   return (
     <>
