@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { Link } from 'react-router-dom';
 import Swal from 'sweetalert2';
 
 export const Login = () => {
@@ -112,9 +113,9 @@ export const Login = () => {
               </form>
 
               <div className="text-center mt-4">
-                <a href="#" className="text-decoration-none redirect-to">
+                <Link to="/register" className="text-decoration-none redirect-to">
                   ¿No tienes cuenta? Registrate Aqui!
-                </a>
+                </Link>
               </div>
 
             </div>

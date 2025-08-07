@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { Link } from "react-router-dom";
 import Swal from 'sweetalert2';
 
 export const Register = () => {
@@ -151,9 +152,9 @@ export const Register = () => {
               </form>
 
               <div className="text-center mt-4">
-                <a href="#" className="text-decoration-none redirect-to">
+                <Link to="/login" className="text-decoration-none redirect-to">
                   ¿Ya tienes cuenta? Inicia sesión Aqui!
-                </a>
+                </Link>
               </div>
 
             </div>
