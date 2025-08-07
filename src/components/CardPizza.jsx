@@ -1,6 +1,12 @@
+import { useContext } from "react";
 import { formatCurrency } from "../data/formatCurrency";
+import { CartContext } from "../context/cartContext";
 
-export const CardPizza = ({ img, name, price, description, ingredients }) => {
+export const CardPizza = ({ pizza }) => {
+
+  const { img, name, price, description, ingredients } = pizza;
+  const { updateCart } = useContext(CartContext);
+
   return (
     <div className="col-md-4">
       <div className="card h-100 shadow border-0">
@@ -30,7 +36,10 @@ export const CardPizza = ({ img, name, price, description, ingredients }) => {
             <button className="btn flex-fill py-2 see-more">
               <i className="fas fa-eye me-2"></i> Ver más
             </button>
-            <button className="btn flex-fill py-2 add-to-cart">
+            <button
+              className="btn flex-fill py-2 add-to-cart"
+              onClick={ () => updateCart(pizza) }
+            >
               <i className="fas fa-cart-plus me-2"></i> Añadir
             </button>
           </div>

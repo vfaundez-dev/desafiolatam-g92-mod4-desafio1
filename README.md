@@ -52,3 +52,12 @@ Desarrollado con `React` y `Bootstrap`, consiste en el desarrollo de una `planti
 - [x] Implementa un componente `NotFound` que se muestre cuando una ruta no exista.
 - [x] Implementa un componente `Profile` que muestre un email de un usuario y un botón para cerrar sesión.
 - [x] Crea uncomponente `Navbar` que contenga un menú de navegación con enlaces a las rutas anteriores (utilizando Link) y el botón `total` lleve a la ruta `/cart`.
+
+#### Hito 6
+
+- [x] Implementar un Context que te permita manejar el carrito de compras de la aplicación.
+- [x] El Navbar consume el Cart Context para mostrar el precio total de los productos en el carrito.
+- [x] Consumir el Cart Context para que el usuario pueda agregar productos al carrito desde la página de Home (botón añadir de cada card).
+- [x] En la página Cart mostrar los productos que el usuario ha agregado al carrito (utilizando Cart Context), permite agregar y eliminar productos del carrito.
+- [x] El total de la compra debe ser calculado y mostrado en la página Cart, además este tiene que ser el mismo que se muestra en el navbar.
+- [x] Llevar el consumo de las pizzas (fetch de Home y Pizza) a un Context.

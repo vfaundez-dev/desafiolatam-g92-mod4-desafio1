@@ -1,12 +1,14 @@
-import { useState } from "react";
+import { useContext } from "react";
 import { formatCurrency } from "../data/formatCurrency";
-import { pizzaCart } from "../data/pizzas";
+//import { pizzaCart } from "../data/pizzas";
+import { CartContext } from "../context/cartContext";
 
 export const Cart = () => {
 
-	const [cart, setCart] = useState(pizzaCart);
+	const { totalValueCart, updateQuantity, cart } = useContext(CartContext);
+	//const [cart, setCart] = useState(pizzaCart);
 
-	const updateQuantity = (id, action) => {
+	/* const updateQuantity = (id, action) => {
 		setCart( prevState => {
 			// prevState es el estado anterior, el cual recorremos y actualizamos
 			return prevState.map( item => {
@@ -24,7 +26,7 @@ export const Cart = () => {
 	const totalPrice = cart.reduce(
 		(acc, pizza) => acc + (pizza.price * pizza.count),
 		0
-	);
+	); */
 
   return (
 		<div className="container my-5">
@@ -44,14 +46,14 @@ export const Cart = () => {
 
 						{/* Card Body */}
 						<div className="card-body px-4 pb-4 cart-body">
-							{ totalPrice === 0 ? (
+							{ totalValueCart === 0 ? (
 									<div className="text-center text-muted">
 										<p className="fs-5">Tu carrito está vacío</p>
 									</div>
 								) : (
 									<>
 										<div className="mb-4">
-											{cart.map( cartItem => (
+											{ cart.map( cartItem => (
 												<div key={ cartItem.id } className="d-flex align-items-center mb-3 p-3 cart-item">
 													<img src={ cartItem.img } alt={ cartItem.name } className="me-3" />
 
@@ -93,7 +95,7 @@ export const Cart = () => {
 										<div className="d-flex justify-content-between align-items-center mb-4 p-3 total-price">
 											<h4 className="mb-0 fw-bold"> Total: </h4>
 											<h4 className="mb-0 fw-bold total-price-value">
-												{ formatCurrency(totalPrice) }
+												{ formatCurrency(totalValueCart) }
 											</h4>
 										</div>
 

@@ -1,12 +1,13 @@
-import { useEffect, useState } from "react";
-// import { pizzas } from "../data/pizzas";
-import useFetchAxios from "../hooks/useFetchAxios";
+import { useContext } from "react";
 import { CardPizza } from "../components/CardPizza";
 import { Header } from "../components/Header";
+import { DataApiContext } from "../context/DataApiContext";
 
 export const Home = () => {
+
+  const { pizzas, errors } = useContext(DataApiContext);
   
-  const { data, errors } = useFetchAxios('http://localhost:5000/api/pizzas');
+  /* const { data, errors } = useFetchAxios('http://localhost:5000/api/pizzas');
   const [pizzas, setPizzas] = useState([]);
   
   useEffect(() => {
@@ -15,7 +16,7 @@ export const Home = () => {
     } else if (data) {
       setPizzas(data);
     }
-  }, [data, errors]);
+  }, [data, errors]); */
 
   return (
     <>
@@ -27,14 +28,7 @@ export const Home = () => {
           { pizzas.length <= 0 ? (
               <p className="text-center text-muted my-0">No hay pizzas disponibles</p>
             ) : (
-              pizzas.map( pizza => <CardPizza
-                key={pizza.id}
-                name={pizza.name}
-                price={pizza.price}
-                ingredients={pizza.ingredients}
-                description={pizza.desc}
-                img={pizza.img}
-              />)
+              pizzas.map( pizza => <CardPizza key={pizza.id} pizza={ pizza } />)
             )
           }
         </div>
