@@ -7,7 +7,7 @@ export const DataApiProvider = ({ children }) => {
 
   const { data, errors } = useFetchAxios('http://localhost:5000/api/pizzas');
   const [pizzas, setPizzas] = useState([]);
-    
+  
   useEffect(() => {
     if (errors) {
       setPizzas([]);

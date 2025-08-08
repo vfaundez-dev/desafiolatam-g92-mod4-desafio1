@@ -6,10 +6,6 @@ const useFetchAxios = (url) => {
   const [data, setData] = useState(null);
   const [errors, setErrors] = useState(null);
 
-  useEffect( () => {
-    getFetchData();
-  }, [url]);
-  
   const getFetchData = async () => {
     try {
 
@@ -23,8 +19,13 @@ const useFetchAxios = (url) => {
       setData(null);
     }
   }
+
+  useEffect( () => {
+    getFetchData();
+  }, [url]);
   
   return { data, errors, getFetchData }
+  
 }
 
 export default useFetchAxios;

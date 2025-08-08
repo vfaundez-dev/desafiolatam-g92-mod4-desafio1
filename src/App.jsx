@@ -23,7 +23,7 @@ function App() {
               <Route path="/" element={ <Home /> } />
               <Route path="/register" element={ <Register /> } />
               <Route path="/login" element={ <Login /> } />
-              <Route path="/logout" element={ <h2 className="text-center text-danger p-5">Secion Cerrada</h2> } />
+              <Route path="/logout" element={ <h2 className="text-center text-danger p-5">Sesión Cerrada</h2> } />
               <Route path="/profile" element={ <Profile /> } />
               <Route path="/cart" element={ <Cart /> } />
               <Route path="/pizza/p001" element={ <Pizza /> } />
