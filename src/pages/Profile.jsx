@@ -1,12 +1,13 @@
+import { useContext } from "react"
+import { UserContext } from "../context/UserContext"
 
 export const Profile = () => {
 
-  const user = {
-    name: 'Juan Perez',
-    email: 'correo@correo.com'
-  }
+  const { user, token, logout } = useContext(UserContext);
 
-  const handleLogout = () => alert('Sesion Cerrada!')
+  const handleLogout = () => {
+    logout();
+  }
 
   return (
     <div className="container my-5 profile">
@@ -27,12 +28,12 @@ export const Profile = () => {
               <div className="text-center mb-4">
                 <h4 className="fw-bold mb-2 user-name">
                   <i className="fas fa-user me-2"></i>
-                  { user.name }
+                  { user?.name || 'Sin usuario' }
                 </h4>
 
                 <p className="mb-0 user-email">
                   <i className="fas fa-envelope me-2"></i>
-                  { user.email }
+                  { user?.email || 'Sin correo' }
                 </p>
 
                 <hr className="my-4" />
@@ -40,6 +41,7 @@ export const Profile = () => {
                 <button
                   className="btn btn-danger w-100 py-3 mt-3 btn-logout"
                   onClick={ handleLogout }
+                  disabled={ !token }
                 >
                   <i className="fas fa-sign-out-alt me-2"></i> Cerrar Sesión
                 </button>

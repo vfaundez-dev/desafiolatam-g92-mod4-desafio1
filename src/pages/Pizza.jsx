@@ -1,11 +1,14 @@
 import { useEffect, useState } from "react";
 import { formatCurrency } from "../data/formatCurrency";
 import useFetchAxios from "../hooks/useFetchAxios";
+import { useParams } from "react-router-dom";
 
 export const Pizza = () => {
 
-  const { data, errors } = useFetchAxios('http://localhost:5000/api/pizzas/p001');
   const [pizza, setPizza] = useState([]);
+  const { id } = useParams();
+
+  const { data, errors } = useFetchAxios(`http://localhost:5000/api/pizzas/${id}`);
 
   useEffect(() => {
     if (errors) {

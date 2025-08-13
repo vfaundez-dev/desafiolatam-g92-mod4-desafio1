@@ -1,10 +1,11 @@
 import { useContext } from "react";
 import { formatCurrency } from "../data/formatCurrency";
 import { CartContext } from "../context/cartContext";
+import { Link } from "react-router-dom";
 
 export const CardPizza = ({ pizza }) => {
 
-  const { img, name, price, description, ingredients } = pizza;
+  const { id, img, name, price, description, ingredients } = pizza;
   const { updateCart } = useContext(CartContext);
 
   return (
@@ -33,9 +34,9 @@ export const CardPizza = ({ pizza }) => {
           </div>
           {/* Botones */}
           <div className="d-flex justify-content-between mt-auto gap-3 btn-options">
-            <button className="btn flex-fill py-2 see-more">
+            <Link to={`/pizza/${id}`} className="btn flex-fill py-2 see-more">
               <i className="fas fa-eye me-2"></i> Ver más
-            </button>
+            </Link>
             <button
               className="btn flex-fill py-2 add-to-cart"
               onClick={ () => updateCart(pizza) }

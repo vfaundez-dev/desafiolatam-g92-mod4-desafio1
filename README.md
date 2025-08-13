@@ -61,3 +61,13 @@ Desarrollado con `React` y `Bootstrap`, consiste en el desarrollo de una `planti
 - [x] En la página Cart mostrar los productos que el usuario ha agregado al carrito (utilizando Cart Context), permite agregar y eliminar productos del carrito.
 - [x] El total de la compra debe ser calculado y mostrado en la página Cart, además este tiene que ser el mismo que se muestra en el navbar.
 - [x] Llevar el consumo de las pizzas (fetch de Home y Pizza) a un Context.
+
+#### Hito 7
+
+- [x] Implementa useParams para obtener el id de la pizza en la página de Pizza.jsx y realiza una petición a la API para obtener la información de la pizza y mostrarla en la página.
+- [x] Crea un UserContext para almacenar el token (simulado). Por ahora este context tiene que tener las siguientes características:
+  - Un estado que almacene el token, por defecto, estará en true.
+  - Un método logout que cambie el estado del token a false.
+- [x] Utiliza el UserContext en el Navbar.jsx, al hacer click en el botón de logout, se debe ejecutar el método logout.
+- [x] Utiliza el UserContext en la página de Cart.jsx, deshabilita el botón "pagar" en caso de que el token sea false.
+- [x] Implementa la ruta protegida para "/profile". Si el token es false, redirige a "/login". Además, si el token es true, los usuarios no deberían poder acceder a la página de login y register (los puedes redirigir al home).

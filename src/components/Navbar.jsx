@@ -1,12 +1,15 @@
 import { useContext } from "react";
-import { Link } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 import { CartContext } from "../context/cartContext";
+import { UserContext } from "../context/UserContext";
 
 export const Navbar = () => {
-  //const total = 25000;
-  const token = false;
 
   const { totalValueCart } = useContext(CartContext);
+  const { token, logout } = useContext(UserContext);
+
+  // Links Activos
+  const getNavLinkClass = ({ isActive }) =>  isActive ? "nav-link active px-3" : "nav-link px-3";
 
   return (
     <nav id="navbar" className="navbar navbar-expand-lg navbar-dark sticky-top" style={{ backgroundColor: "#212529" }}>
@@ -32,36 +35,36 @@ export const Navbar = () => {
         <div className="collapse navbar-collapse" id="navbarNav">
           <ul className="navbar-nav mx-auto">
             <li className="nav-item">
-              <Link to="/" className="nav-link active px-3">
+              <NavLink to="/" className={ getNavLinkClass }>
                 <i className="fas fa-home me-1"></i> Home
-              </Link>
+              </NavLink>
             </li>
             {
               token ? (
                 <>
                   <li className="nav-item">
-                    <Link to="/profile" className="nav-link px-3">
+                    <NavLink to="/profile" className={ getNavLinkClass }>
                       <i className="fas fa-user me-1"></i> Profile
-                    </Link>
+                    </NavLink>
                   </li>
                   <li className="nav-item">
-                    <Link to="/logout" className="nav-link px-3">
+                    <button className="nav-link px-3" onClick={ logout }>
                       <i className="fas fa-sign-out-alt me-1"></i> Logout
-                    </Link>
+                    </button>
                   </li>
                 </>
                 
               ) : (
                 <>
                   <li className="nav-item">
-                    <Link to="/login" className="nav-link px-3">
+                    <NavLink to="/login" className={ getNavLinkClass }>
                       <i className="fas fa-sign-in-alt me-1"></i> Login
-                    </Link>
+                    </NavLink>
                   </li>
                   <li className="nav-item">
-                    <Link to="/register" className="nav-link px-3">
+                    <NavLink to="/register" className={ getNavLinkClass }>
                       <i className="fas fa-user-plus me-1"></i> Register
-                    </Link>
+                    </NavLink>
                   </li>
                 </>
               )

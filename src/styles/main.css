@@ -35,6 +35,11 @@ body {
     transition: all 0.3s ease;
 }
 
+#navbar .nav-link.active {
+    font-weight: 500;
+    color: var(--accent-color) !important;
+}
+
 #navbar #navbarNav .btn-price {
     min-width: 130px;
     height: 40px;
@@ -137,7 +142,8 @@ body {
     font-size: 1.5rem;
 }
 
-.card .btn-options button {
+.card .btn-options button,
+.card .btn-options a {
     min-width: 130px;
     height: 40px;
     padding: 5px 10px;

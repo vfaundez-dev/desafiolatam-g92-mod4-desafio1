@@ -2,31 +2,12 @@ import { useContext } from "react";
 import { formatCurrency } from "../data/formatCurrency";
 //import { pizzaCart } from "../data/pizzas";
 import { CartContext } from "../context/cartContext";
+import { UserContext } from "../context/UserContext";
 
 export const Cart = () => {
 
 	const { totalValueCart, updateQuantity, cart } = useContext(CartContext);
-	//const [cart, setCart] = useState(pizzaCart);
-
-	/* const updateQuantity = (id, action) => {
-		setCart( prevState => {
-			// prevState es el estado anterior, el cual recorremos y actualizamos
-			return prevState.map( item => {
-				if (item.id === id) {
-					// newCount: nueva cantidad segun la accion a ejecutarse
-					const newCount = action === 'incrementar' ? item.count + 1 : item.count - 1;
-					return { ...item, count: newCount }; // Retornamos todo el item con la cantidad actualizada
-				}
-				return item;
-			})
-			.filter( item => item.count > 0 ); // Eliminar elementos con cantidad igual a 0
-		});
-	}
-
-	const totalPrice = cart.reduce(
-		(acc, pizza) => acc + (pizza.price * pizza.count),
-		0
-	); */
+	const { token } = useContext(UserContext);
 
   return (
 		<div className="container my-5">
@@ -100,7 +81,7 @@ export const Cart = () => {
 										</div>
 
 										{/* Pay Button */}
-										<button className="btn w-100 py-3 btn-pay">
+										<button className="btn w-100 py-3 btn-pay" disabled={ !token }>
 											<i className="fas fa-credit-card me-2"></i> Pagar
 										</button>
 									</>
