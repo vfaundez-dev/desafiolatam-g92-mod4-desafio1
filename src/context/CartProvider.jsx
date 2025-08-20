@@ -3,7 +3,7 @@ import { useCart } from "../hooks/useCart";
 
 const CartProvider = ({ children }) => {
 
-  const { cart, updateQuantity, updateCart, totalValueCart } = useCart();
+  const { cart, updateQuantity, updateCart, totalValueCart, sendCartOrder } = useCart();
 
   return (
     <CartContext.Provider
@@ -11,7 +11,8 @@ const CartProvider = ({ children }) => {
         cart,
         updateQuantity,
         updateCart,
-        totalValueCart
+        totalValueCart,
+        sendCartOrder
       }}
     >
       { children }

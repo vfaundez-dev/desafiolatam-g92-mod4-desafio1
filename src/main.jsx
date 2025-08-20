@@ -5,13 +5,12 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import 'bootstrap/dist/js/bootstrap.bundle.min.js';
 import './styles/main.css';
 import App from './App.jsx'
-import { DataApiProvider } from './context/DataApiProvider.jsx';
 import CartProvider from './context/CartProvider.jsx';
 import UserProvider from './context/UserProvider.jsx';
 
 createRoot(document.getElementById('root')).render(
   <StrictMode>
-    <DataApiProvider>
+    
       <CartProvider>
         <UserProvider>
 
@@ -21,6 +20,6 @@ createRoot(document.getElementById('root')).render(
 
         </UserProvider>
       </CartProvider>
-    </DataApiProvider>
+      
   </StrictMode>,
 )

@@ -6,17 +6,6 @@ import { DataApiContext } from "../context/DataApiContext";
 export const Home = () => {
 
   const { pizzas, errors } = useContext(DataApiContext);
-  
-  /* const { data, errors } = useFetchAxios('http://localhost:5000/api/pizzas');
-  const [pizzas, setPizzas] = useState([]);
-  
-  useEffect(() => {
-    if (errors) {
-      setPizzas([]);
-    } else if (data) {
-      setPizzas(data);
-    }
-  }, [data, errors]); */
 
   return (
     <>

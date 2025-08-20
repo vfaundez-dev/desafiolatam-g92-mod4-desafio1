@@ -10,6 +10,7 @@ import { Profile } from "./pages/Profile";
 import { NotFound } from "./pages/NotFound";
 import { useContext } from "react";
 import { UserContext } from "./context/UserContext";
+import { DataApiProvider } from "./context/DataApiProvider";
 
 function App() {
 
@@ -20,8 +21,15 @@ function App() {
       <Navbar />
       <div className="min-vh-100">
         <Routes>
-          <Route path="/" element={ <Home /> } />
-          
+          <Route path="/" element={
+              <DataApiProvider>
+                <Home />
+              </DataApiProvider>
+            }
+          />
+          <Route path="/cart" element={ <Cart /> } />
+          <Route path="/pizza/:id" element={ <Pizza /> } />
+
           <Route path="/register" element={
             !token ? <Register /> : <Navigate to="/" />
           }/>
@@ -33,9 +41,7 @@ function App() {
           <Route path="/profile" element={
             token ? <Profile /> : <Navigate to="/login" /> 
           }/>
-          
-          <Route path="/cart" element={ <Cart /> } />
-          <Route path="/pizza/:id" element={ <Pizza /> } />
+
           <Route path="/404" element={ <NotFound /> } />
           <Route path="/*" element={ <NotFound /> } />
         </Routes>

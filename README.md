@@ -71,3 +71,14 @@ Desarrollado con `React` y `Bootstrap`, consiste en el desarrollo de una `planti
 - [x] Utiliza el UserContext en el Navbar.jsx, al hacer click en el botón de logout, se debe ejecutar el método logout.
 - [x] Utiliza el UserContext en la página de Cart.jsx, deshabilita el botón "pagar" en caso de que el token sea false.
 - [x] Implementa la ruta protegida para "/profile". Si el token es false, redirige a "/login". Además, si el token es true, los usuarios no deberían poder acceder a la página de login y register (los puedes redirigir al home).
+
+#### Hito 8 y Prueba Final
+
+- [x] En el UserContext, implementa los métodos para hacer login y register, consumiendo las rutas /api/auth/login y /api/auth/register respectivamente y se almacenan token y email en respectivos estados.
+- [x] En el UserContext, implementa un método para hacer logout, este método debe eliminar el token y el email del estado.
+- [x] En el UserContext, implementa un método para obtener el perfil del usuario autenticado, consumiendo la ruta /api/auth/me.
+- [x] Tanto la página de Login como la de Register, deben implementar los métodos creados en UserContext para acceder al sistema.
+- [x] En la página profile, muestra el email del usuario autenticado y un botón para cerrar sesión.
+- [x] El botón logout del navbar debe cerrar la sesión del usuario.
+- [x] En la página de Cart.jsx, implementa el método para enviar el carrito de compras al backend, consumiendo la ruta /api/checkouts.
+- [x] En la página de Cart.jsx, muestra un mensaje de éxito cuando se haya realizado la compra.

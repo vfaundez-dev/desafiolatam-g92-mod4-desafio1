@@ -1,15 +1,12 @@
-import { useContext, useEffect, useState } from "react";
-import { DataApiContext } from "../context/DataApiContext";
+import { useState } from "react";
+import Swal from "sweetalert2";
+import useFetchAxios from "./useFetchAxios";
 
 export const useCart = () => {
-  const { pizzas, errors } = useContext(DataApiContext);
-  const [cart, setCart] = useState([]);
-
-  useEffect(() => {
-    if (!errors && pizzas.length > 0) {
-      setCart( pizzas.slice(0, 3).map(pizza => ({ ...pizza, count: 1 })) );
-    }
-  }, [pizzas, errors]);
+  const [cart, setCart] = useState(
+    JSON.parse( localStorage.getItem('cart') ) || []
+  );
+  const { fetchData } = useFetchAxios();
 
   const updateQuantity = (id, action) => {
 		setCart( prevState => {
@@ -28,18 +25,23 @@ export const useCart = () => {
 
   const updateCart = (pizza) => {
     setCart( prevCart => {
+      let updatedCart;
       const existPizza = prevCart.find( item => item.id === pizza.id );
 
-      // Comprobamos que si la pizza ha sido ingresada en el carrito, solo actualizamos el contador
       if (existPizza) {
-        return prevCart.map(item =>
-          item.id === pizza.id
-            ? { ...item, count: item.count + 1 }
-            : item
+        // Si existe, actualizamos su cantidad
+        updatedCart = prevCart.map(item =>
+          item.id === pizza.id ? { ...item, count: item.count + 1 } : item
         );
       } else {
-        return [...prevCart, { ...pizza, count: 1 }];
+        // Si no existe, agregamos al array como elemento nuevo
+        updatedCart = [...prevCart, { ...pizza, count: 1 }];
       }
+
+      // Guardamos en localStorage
+      localStorage.setItem("cart", JSON.stringify(updatedCart));
+
+      return updatedCart;
 
     });
   }
@@ -49,7 +51,42 @@ export const useCart = () => {
 		0
 	);
 
+  const sendCartOrder = async ({ token, cart }) => {
+    try {
 
-  return { cart, updateQuantity, updateCart, totalValueCart };
+      if (!token) return;
+
+      const url = 'http://localhost:5000/api/checkouts';
+      const options = {
+        method: 'post',
+        headers: {
+          'Content-Type': 'application/json',
+          'Authorization': `Bearer ${token}`
+        },
+        data: { cart }
+      }
+
+      const result = await fetchData({ url, options });
+      
+      Swal.fire({
+        icon: 'success',
+        title: 'Pedido procesado!',
+        text: result.message
+      })
+      
+      setCart([]);
+      
+    } catch (error) {
+      console.log('Error procesando pedido', error);
+      Swal.fire({
+        icon: 'error',
+        title: 'Error procesando carrito!',
+        text: 'Intente nuevamente'
+      })
+    }
+  }
+
+
+  return { cart, updateQuantity, updateCart, totalValueCart, sendCartOrder };
 
 }

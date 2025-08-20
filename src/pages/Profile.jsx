@@ -1,13 +1,26 @@
-import { useContext } from "react"
+import { useContext, useEffect, useState } from "react"
 import { UserContext } from "../context/UserContext"
 
 export const Profile = () => {
 
-  const { user, token, logout } = useContext(UserContext);
+  const [user, setUser] = useState(null);
+  const { token, logout, me } = useContext(UserContext);
 
   const handleLogout = () => {
     logout();
   }
+
+  const getUser = async() => {
+    if (!user) {
+      const dataUserApi = await me();
+      setUser({ name: 'Vladimir Faundez', ...dataUserApi });
+    }
+  }
+
+  useEffect(() => {
+    getUser();
+  }, [])
+
 
   return (
     <div className="container my-5 profile">

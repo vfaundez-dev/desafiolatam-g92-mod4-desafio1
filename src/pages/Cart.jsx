@@ -1,13 +1,16 @@
 import { useContext } from "react";
 import { formatCurrency } from "../data/formatCurrency";
-//import { pizzaCart } from "../data/pizzas";
 import { CartContext } from "../context/cartContext";
 import { UserContext } from "../context/UserContext";
 
 export const Cart = () => {
 
-	const { totalValueCart, updateQuantity, cart } = useContext(CartContext);
+	const { cart, totalValueCart, updateQuantity, sendCartOrder } = useContext(CartContext);
 	const { token } = useContext(UserContext);
+
+	const sendOrder = async () => {
+		await sendCartOrder({ token, cart });
+	}
 
   return (
 		<div className="container my-5">
@@ -81,7 +84,11 @@ export const Cart = () => {
 										</div>
 
 										{/* Pay Button */}
-										<button className="btn w-100 py-3 btn-pay" disabled={ !token }>
+										<button
+											className="btn w-100 py-3 btn-pay"
+											disabled={ !token }
+											onClick={ sendOrder }
+										>
 											<i className="fas fa-credit-card me-2"></i> Pagar
 										</button>
 									</>

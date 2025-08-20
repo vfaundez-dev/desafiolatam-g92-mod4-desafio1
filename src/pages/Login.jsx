@@ -1,6 +1,7 @@
-import { useState } from 'react';
+import { useContext, useState } from 'react';
 import { Link } from 'react-router-dom';
 import Swal from 'sweetalert2';
+import { UserContext } from '../context/UserContext';
 
 export const Login = () => {
 
@@ -12,6 +13,8 @@ export const Login = () => {
 	const handleUsernameChange = (e) => setUsername( e.target.value );
 	const handlePasswordChange = (e) => setPassword( e.target.value );
 	const togglePasswordVisibility = () => setShowPassword(!showPassword);
+
+  const { login } = useContext(UserContext);
 
 	// Manejador de Login
 	const handleLogin = (e) => {
@@ -35,17 +38,15 @@ export const Login = () => {
 			  title: 'La contraseña debe tener al menos 6 caracteres'
 			});
 		}
-
-		// Desplegar alerta
-		Swal.fire({
-			icon: 'success',
-			title: 'Login exitoso!'
-		});
+    
 		// Limpiar campos
 		setPassword('');
 		setUsername('');
 		usernameInput.value = '';
 		passwordInput.value = '';
+    // Login de usuario
+    login({ email: username, password });
+
 	}
 	
 	return (

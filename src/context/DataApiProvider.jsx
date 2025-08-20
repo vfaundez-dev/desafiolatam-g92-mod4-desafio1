@@ -5,7 +5,8 @@ import { DataApiContext } from "./DataApiContext";
 
 export const DataApiProvider = ({ children }) => {
 
-  const { data, errors } = useFetchAxios('http://localhost:5000/api/pizzas');
+  const url = 'http://localhost:5000/api/pizzas';
+  const { data, errors } = useFetchAxios({ url });
   const [pizzas, setPizzas] = useState([]);
   
   useEffect(() => {

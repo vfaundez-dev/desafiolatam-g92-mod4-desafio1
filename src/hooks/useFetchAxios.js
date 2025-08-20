@@ -1,30 +1,39 @@
 import axios from 'axios';
 import { useEffect, useState } from 'react';
 
-const useFetchAxios = (url) => {
+const useFetchAxios = ({ url = null, options = {} } = {} ) => {
 
   const [data, setData] = useState(null);
   const [errors, setErrors] = useState(null);
 
-  const getFetchData = async () => {
+  const fetchData = async ({ url, options = {} }) => {
     try {
 
-      const resp = await axios.get(url);
-      setData(resp.data);
+      const resp = await axios({ url, ...options });
+      const data = resp.data;
+      setData(data);
       setErrors(null);
+      return data;
 
     } catch (error) {
-      console.log('Error cargando datos: ' + error.message);
-      setErrors(error);
+      const serverMessage = error.response?.data?.message || 
+                          error.response?.data?.error || 
+                          error.response?.data || 
+                          error.message;
+    
+      setErrors(serverMessage);
       setData(null);
+      throw new Error(serverMessage);
     }
   }
 
   useEffect( () => {
-    getFetchData();
-  }, [url]);
+    if (url) {
+      fetchData({ url, options });
+    }
+  }, []);
   
-  return { data, errors, getFetchData }
+  return { data, errors, fetchData }
   
 }
 

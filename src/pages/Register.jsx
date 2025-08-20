@@ -1,6 +1,7 @@
-import { useState } from "react";
+import { useContext, useState } from "react";
 import { Link } from "react-router-dom";
 import Swal from 'sweetalert2';
+import { UserContext } from "../context/UserContext";
 
 export const Register = () => {
 	const [email, setEmail] = useState('');
@@ -15,6 +16,8 @@ export const Register = () => {
 	const handlePassword2Change = (e) => setPassword2( e.target.value );
   const togglePassword1 = () => setShowPassword1(prev => !prev);
   const togglePassword2 = () => setShowPassword2(prev => !prev);
+
+  const { register } = useContext(UserContext);
 
 	// Manejador de registro
 	const handleRegister = (e) => {
@@ -47,12 +50,7 @@ export const Register = () => {
 				title: 'Las contraseñas no coinciden'
 			});
 		}
-
-		// Desplegar alerta
-		Swal.fire({
-			icon: 'success',
-			title: 'Usuario registrado exitosamente!'
-		});
+    
 		// Limpiar campos
 		setEmail('');
 		setPassword1('');
@@ -60,6 +58,9 @@ export const Register = () => {
 		emailInput.value = '';
 		password1Input.value = '';
 		password2Input.value = '';
+    // Registro de usuario
+    register({ email, password: password1 });
+
 	}
 
   return (
@@ -102,8 +103,8 @@ export const Register = () => {
                   </label>
                   <div className="input-group">
                     <input
-                      id="password"
-                      name="password"
+                      id="password1"
+                      name="password1"
                       type={showPassword1 ? "text" : "password"}
                       className="form-control"
                       placeholder="••••••••"
